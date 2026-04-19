@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/screens/signup.dart';
 
 class HeaderPage extends StatelessWidget implements PreferredSizeWidget {
   const HeaderPage({super.key});
@@ -22,16 +21,24 @@ class HeaderPage extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.settings, size: 24, color: Colors.white),
           onSelected: (value) {
             if (value == "signup") {
-              Navigator.push(
+              final currentRoute = ModalRoute.of(context)?.settings.name;
+              if (currentRoute != "/signup") {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  "/signup",
+                  (route) => false,
+                );
+              }
+            } else if (value == "logout") {
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => const SignupPage()),
+                "/login",
+                (route) => false,
               );
-            } else if (value == "Logout") {
-              //logout
             }
           },
           itemBuilder: (BuildContext context) => [
-            const PopupMenuItem(
+            PopupMenuItem(
               value: "signup",
               child: Row(
                 children: [
