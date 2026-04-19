@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/components/create_quizzes.dart';
 import 'package:quiz_app/screens/child.dart';
-import 'package:quiz_app/screens/home.dart';
 import 'package:quiz_app/screens/login.dart';
 import 'package:quiz_app/screens/parents.dart';
 import 'package:quiz_app/screens/signup.dart';
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        "/home": (context) => const Homepage(),
         "/login": (context) => const LoginPage(),
         "/signup": (context) => const SignupPage(),
         "/child": (context) => const MainChildPage(),
